@@ -23,7 +23,7 @@ pipeline{
     
         stage("Checkout from SCM"){
             steps {
-                git branch: 'main', credentialsId: 'github', url: 'https://github.com/jagannadhamyuvaraj/complete-prodcution-e2e-pipeline.git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/jagannadhamyuvaraj/gitops-pipeline.git'
             }
 
         }
