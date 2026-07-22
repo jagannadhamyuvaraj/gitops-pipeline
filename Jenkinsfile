@@ -2,11 +2,6 @@ pipeline{
     agent{
         label "slave"
     }
-  tools {
-        maven 'Maven3'
-     
-        // sonarqube 'sonarqube-scanner'
-    }
   environment {
         
         APP_NAME = "complete-prodcution-e2e-pipeline"
@@ -29,11 +24,11 @@ pipeline{
         }
         stage("updae the Deployment Tags") {
           steps {
-                 """
+               sh """
                  cat deployment.yaml
                  sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deloyment.yaml
                  cat deployment.yaml
-                 """
+                """
           }
         }
       stage("push the changed deployment file to git") {
@@ -51,5 +46,3 @@ pipeline{
       }  
     } //stages closing
 } //pipeline closing
-
-    }
