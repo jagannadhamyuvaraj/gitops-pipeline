@@ -33,7 +33,7 @@ pipeline{
         }
       stage("push the changed deployment file to git") {
         steps {
-            withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: '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', usernameVariable: 'jagannadhamyuvaraj')]) {
+            // withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: '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', usernameVariable: 'jagannadhamyuvaraj')]) {
           sh """
                git config --global user.name "jagannadhamyuvaraj"
                git config --global user.email "yuvarajjagannadham65@gamil.com"
@@ -41,9 +41,9 @@ pipeline{
                git commit -m "updated Deployment Manifest"
           """
           withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-            sh "git push https://\${jagannadhamyuvaraj}:\${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}@github.com/jagannadhamyuvaraj/gitops-pipeline.git HEAD:main"
+            sh "git push https://jagannadhamyuvaraj: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@github.com/jagannadhamyuvaraj/gitops-pipeline.git HEAD:main"
           }
-            }
+            
         }
       }  
     } //stages closing
