@@ -1,0 +1,26 @@
+name: Pull request workflow
+
+on: 
+  pull_request:
+    types: [opened, synchronize, closed]
+jobs:
+  pr_job:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout Code
+         uses: actions/checkout@v4
+
+       - name: Setup node.js
+         uses: actions/setup-node@v3]
+         with:
+             node-version: '18'
+
+        - name: Initialize node.js 
+          run: |
+            npm inti -y
+            npm pkg set scritps.tests="echo \ ""No tests ser 
+            run pkg set scripts.start="node index.j"
+         
+         
+    
+    
